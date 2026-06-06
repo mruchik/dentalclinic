@@ -1119,7 +1119,8 @@
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(data)
         });
-        return resp.json();
+        const json = await resp.json();
+        return { status: resp.status, ...json };
       } catch (err) {
         console.error('Send API error', err);
         return { ok: false, error: 'network' };
@@ -1147,6 +1148,12 @@
       if (result && result.ok) {
         alert('Appointment request sent — we will contact you soon.');
         form.reset();
+        return;
+      }
+
+      const serverError = result && result.error ? `\n\nServer error: ${result.error}` : '';
+      if (result && result.status === 500 && result.error === 'Email service not configured') {
+        alert('Server email is not configured yet. Please set SENDGRID_API_KEY, SENDGRID_FROM_EMAIL, and APPOINTMENT_EMAIL in your Vercel project settings.' + serverError);
         return;
       }
 
