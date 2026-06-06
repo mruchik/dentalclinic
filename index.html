@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Swarnim Multispeciality Dental Clinic</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a2d9f7e5f8.js" crossorigin="anonymous"></script>
+  <style>
+    :root {
+      --primary: #0d9488;
+      --primary-soft: #d1fae5;
+      --text: #0f172a;
+      --muted: #475569;
+      --accent: #14b8a6;
+      --card: #ffffff;
+      --shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+      scroll-behavior: smooth;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+      background: #f8fafc;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1200px, calc(100% - 2rem));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .brand-logo {
+      width: 56px;
+      height: 56px;
+      border-radius: 18px;
+      background: #fff;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 12px 24px rgba(13,148,136,0.16);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .brand-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .brand-text {
+      display: grid;
+      gap: 0.2rem;
+      line-height: 1.1;
+    }
+
+    .brand-text .brand-tagline {
+      font-size: 0.9rem;
+      color: var(--accent);
+      font-family: 'Lato', sans-serif;
+      font-weight: 500;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      list-style: none;
+    }
+
+    nav a {
+      color: var(--text);
+      font-weight: 600;
+      transition: color 0.25s ease;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    .cta-phone {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.2rem;
+      border-radius: 999px;
+      background: var(--primary);
+      color: #fff;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .cta-phone:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(13,148,136,0.22);
+    }
+
+    .hero {
+      min-height: calc(100vh - 82px);
+      display: grid;
+      align-items: center;
+      padding: 5rem 0;
+      gap: 2rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero-copy h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 5vw, 4.7rem);
+      line-height: 1.02;
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+
+    .hero-copy p {
+      max-width: 42rem;
+      margin-bottom: 2rem;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .btn, .btn-alt {
+      padding: 0.95rem 1.5rem;
+      border-radius: 999px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .btn {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .btn-alt {
+      background: #ffffff;
+      border: 1px solid rgba(20,184,166,0.4);
+      color: var(--primary);
+    }
+
+    .btn:hover, .btn-alt:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 30px rgba(13,148,136,0.12);
+    }
+
+    .hero-visual {
+      background: linear-gradient(180deg, rgba(13,148,136,0.08), rgba(255,255,255,0.95));
+      border-radius: 2rem;
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-visual::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(20,184,166,0.18), transparent 42%);
+      pointer-events: none;
+    }
+
+    .hero-card {
+      background: #fff;
+      border-radius: 1.5rem;
+      padding: 2rem;
+      display: grid;
+      gap: 1rem;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+    }
+
+    .hero-card h2 {
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 0.75rem;
+      color: var(--primary);
+    }
+
+    .hero-card p {
+      color: var(--muted);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .stat {
+      background: var(--primary-soft);
+      border-radius: 1rem;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .stat h3 {
+      color: var(--primary);
+      font-size: 1.3rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    section {
+      padding: 5rem 0;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .section-title::before {
+      content: '';
+      width: 4rem;
+      height: 0.2rem;
+      background: var(--primary);
+      border-radius: 999px;
+    }
+
+    .section-title h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      margin-top: 0.6rem;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .doctor-card {
+      background: #fff;
+      border-radius: 2rem;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+      transition: transform 0.3s ease;
+    }
+
+    .doctor-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .doctor-card .photo {
+      width: 100%;
+      padding: 1.5rem;
+      background: #ecfdf5;
+      display: grid;
+      place-items: center;
+      color: #0f172a;
+      font-size: 1.1rem;
+    }
+
+    .doctor-card .photo img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      object-position: center center;
+      display: block;
+    }
+
+    .doctor-card .photo span {
+      background: #fff;
+      padding: 0.7rem 1rem;
+      border-radius: 999px;
+      box-shadow: 0 16px 32px rgba(13,148,136,0.08);
+    }
+
+    .doctor-details {
+      padding: 2rem;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .doctor-details h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.9rem;
+    }
+
+    .doctor-details p {
+      color: var(--muted);
+    }
+
+    .doctor-highlights {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .doctor-highlights div {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+      color: var(--muted);
+    }
+
+    .doctor-highlights i {
+      color: var(--primary);
+      margin-top: 0.15rem;
+    }
+
+    .timing-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .timing-card .hours {
+      background: var(--primary);
+      color: #fff;
+      border-radius: 2rem;
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      display: grid;
+      gap: 1rem;
+    }
+
+    .timing-card .hours h3,
+    .timing-card .hours p {
+      color: #fff;
+    }
+
+    .time-table {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .time-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255,255,255,0.14);
+      padding: 1rem 1.25rem;
+      border-radius: 1.3rem;
+      border: 1px solid rgba(255,255,255,0.18);
+    }
+
+    .time-row span:first-child {
+      font-weight: 600;
+    }
+
+    .emergency {
+      background: #ffffff;
+      border-radius: 2rem;
+      padding: 2rem;
+      box-shadow: var(--shadow);
+    }
+
+    .emergency h3 {
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 0.8rem;
+      color: var(--primary);
+    }
+
+    .emergency p {
+      color: var(--muted);
+      margin-bottom: 1.2rem;
+    }
+
+    .emergency a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      padding: 0.9rem 1.25rem;
+      border-radius: 999px;
+      background: var(--primary-soft);
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .treatments-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    .treatment-card {
+      background: #fff;
+      border-radius: 1.8rem;
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      transition: transform 0.25s ease, border-color 0.25s ease;
+      border: 1px solid transparent;
+    }
+
+    .treatment-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(13, 148, 136, 0.16);
+    }
+
+    .treatment-card i {
+      background: var(--primary-soft);
+      color: var(--primary);
+      width: 3.5rem;
+      height: 3.5rem;
+      display: grid;
+      place-items: center;
+      border-radius: 1rem;
+      margin-bottom: 1.15rem;
+      font-size: 1.2rem;
+    }
+
+    .treatment-card h3 {
+      margin-bottom: 0.8rem;
+      font-size: 1.15rem;
+    }
+
+    .doctor-panel {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    .doctor-item {
+      background: #fff;
+      border-radius: 1.8rem;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform 0.25s ease;
+    }
+
+    .doctor-item:hover {
+      transform: translateY(-10px);
+    }
+
+    .doctor-item .card-top {
+      background: var(--primary-soft);
+      padding: 1.8rem;
+      display: grid;
+      place-items: center;
+    }
+
+    .doctor-item .card-top span {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      background: #fff;
+      display: grid;
+      place-items: center;
+      font-size: 2rem;
+      color: var(--primary);
+      box-shadow: 0 12px 26px rgba(13,148,136,0.08);
+    }
+
+    .doctor-item .card-body {
+      padding: 1.75rem 1.8rem 2rem;
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .doctor-item h3 {
+      font-size: 1.2rem;
+    }
+
+    .doctor-item p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .offers-banner {
+      border-radius: 2rem;
+      background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%);
+      color: #fff;
+      padding: 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr 0.9fr;
+      gap: 2rem;
+      box-shadow: var(--shadow);
+    }
+
+    .offers-info h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .offers-info p {
+      color: rgba(255,255,255,0.92);
+      margin-bottom: 1.5rem;
+    }
+
+    .offer-list {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .offer-pill {
+      background: rgba(255,255,255,0.14);
+      border-radius: 1.5rem;
+      padding: 1rem 1.2rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-weight: 600;
+    }
+
+    .consultation-section {
+      background: #ffffff;
+      border-radius: 2rem;
+      box-shadow: var(--shadow);
+      padding: 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .consultation-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .consultation-section p {
+      color: var(--muted);
+      max-width: 42rem;
+    }
+
+    .appointment-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 2rem;
+    }
+
+    .booking-form {
+      background: #fff;
+      border-radius: 2rem;
+      padding: 2rem;
+      box-shadow: var(--shadow);
+    }
+
+    .booking-form label {
+      display: block;
+      margin-bottom: 0.4rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .booking-form input,
+    .booking-form select,
+    .booking-form textarea {
+      width: 100%;
+      padding: 0.95rem 1rem;
+      border-radius: 1rem;
+      border: 1px solid #d1d5db;
+      background: #f8fafc;
+      color: var(--text);
+      margin-bottom: 1.2rem;
+      font: inherit;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .booking-form input:focus,
+    .booking-form select:focus,
+    .booking-form textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(13,148,136,0.12);
+    }
+
+    .booking-form textarea {
+      min-height: 170px;
+      resize: vertical;
+    }
+
+    .booking-form button {
+      width: 100%;
+      margin-top: 0.5rem;
+    }
+
+    .map-card {
+      background: #fff;
+      border-radius: 2rem;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .map-card iframe {
+      width: 100%;
+      min-height: 420px;
+      border: 0;
+      display: block;
+    }
+
+    .address-block {
+      padding: 1.75rem 2rem;
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .address-block h3 {
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 0.5rem;
+    }
+
+    .address-block p {
+      color: var(--muted);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    .testimonial-card {
+      background: #fff;
+      border-radius: 2rem;
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      display: grid;
+      gap: 1rem;
+      transition: transform 0.25s ease;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .testimonial-rating {
+      color: var(--accent);
+      display: flex;
+      gap: 0.2rem;
+      font-size: 0.95rem;
+    }
+
+    .testimonial-card h4 {
+      font-size: 1rem;
+      margin-top: 0.4rem;
+    }
+
+    .testimonial-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    footer {
+      padding: 3rem 0 2rem;
+      color: var(--muted);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin: 1rem 0 0;
+    }
+
+    .social-links a {
+      color: var(--primary);
+      font-size: 1.2rem;
+      transition: transform 0.2s ease;
+    }
+
+    .social-links a:hover {
+      transform: translateY(-2px);
+    }
+
+    .footer-quick {
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .footer-quick a {
+      color: var(--muted);
+    }
+
+    .footer-bottom {
+      margin-top: 2rem;
+      border-top: 1px solid #e2e8f0;
+      padding-top: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1rem;
+      font-size: 0.95rem;
+      color: #64748b;
+    }
+
+    .highlight-box {
+      display: inline-flex;
+      gap: 0.75rem;
+      align-items: center;
+      background: #ecfdf5;
+      color: #065f46;
+      padding: 1rem 1.2rem;
+      border-radius: 1.3rem;
+      width: max-content;
+      margin-top: 0.85rem;
+    }
+
+    @media (max-width: 1080px) {
+      .hero-grid,
+      .about-grid,
+      .timing-card,
+      .treatments-grid,
+      .doctor-panel,
+      .appointment-grid,
+      .testimonials-grid,
+      .offers-banner {
+        grid-template-columns: 1fr;
+      }
+
+      .consultation-section {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 4rem;
+      }
+    }
+
+    @media (max-width: 800px) {
+      nav ul {
+        gap: 1rem;
+      }
+
+      .nav-wrap {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .nav-wrap nav {
+        order: 2;
+      }
+
+      .nav-wrap .cta-phone {
+        order: 1;
+        margin-top: 0.8rem;
+      }
+
+      section {
+        padding: 3.5rem 0;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-grid,
+      .about-grid,
+      .timing-card,
+      .treatments-grid,
+      .doctor-panel,
+      .appointment-grid,
+      .testimonials-grid {
+        gap: 1.25rem;
+      }
+
+      .section-title h2 {
+        font-size: 1.75rem;
+      }
+
+      .hero-copy h1 {
+        font-size: 2.6rem;
+      }
+
+      .btn, .btn-alt {
+        width: 100%;
+      }
+
+      .nav-wrap {
+        padding: 1rem 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav-wrap">
+      <a href="#home" class="brand">
+        <div class="brand-logo" aria-hidden="true">
+          <img src="logo.png" alt="Swarnim Multispeciality Dental Clinic logo" />
+        </div>
+        <div class="brand-text">
+          <span>Swarnim Multispeciality Dental Clinic</span>
+          <span class="brand-tagline">Gentle care, bright smiles</span>
+        </div>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#treatments">Treatments</a></li>
+          <li><a href="#doctors">Doctors</a></li>
+          <li><a href="#booking">Booking</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+        </ul>
+      </nav>
+      <a href="tel:+919265759219" class="cta-phone"><i class="fas fa-phone-alt"></i> +91 92657 59219</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" id="home">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <h1>Swarnim Multispeciality Dental Clinic</h1>
+          <p>Your trusted family dental center for confident smiles and gentle care. We deliver expert treatments, modern technology, and a calm experience for every patient.</p>
+          <p style="margin-top:1rem;font-size:0.95rem;color:var(--primary);font-weight:700;">Listed on Practo: <a href="https://www.practo.com/ahmedabad/clinic/swarnim-dental-clinic-isanpur" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;">practo.com/ahmedabad/clinic/swarnim-dental-clinic-isanpur</a></p>
+          <div class="hero-actions">
+            <a href="#booking" class="btn">Book Appointment</a>
+            <a href="#offers" class="btn-alt">View Offers</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-card">
+            <h2>Welcome to bright oral health</h2>
+            <p>Our skilled team combines personalized care and advanced treatment plans to keep your smile healthy and radiant.</p>
+            <div class="stats">
+              <div class="stat">
+                <h3>6+</h3>
+                <span>Years Experience</span>
+              </div>
+              <div class="stat">
+                <h3>2500+</h3>
+                <span>Happy Patients</span>
+              </div>
+              <div class="stat">
+                <h3>9/10</h3>
+                <span>Patient Satisfaction</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="section-title">
+        <h2>About the Doctor</h2>
+      </div>
+      <div class="about-grid">
+        <div class="doctor-card">
+          <div class="photo">
+            <img src="ruchik profile photo .png" alt="Dr. Ruchik Mistry" />
+          </div>
+          <div class="doctor-details">
+            <h3>DR. RUCHIK MISTRY</h3>
+            <p>With over 6 years of professional dental practice, Dr. Ruchik Mistry brings warmth, precision, and personalized attention to every patient visit.</p>
+            <p>"I believe every smile deserves comfortable, caring treatment with results you can trust. Our team is committed to creating confident, lasting oral health for you and your family."</p>
+          </div>
+        </div>
+        <div class="timing-card">
+          <div class="hours">
+            <h3>Clinic Timings</h3>
+            <p>Convenient hours for routine and urgent dental care.</p>
+            <div class="time-table">
+              <div class="time-row"><span>Mon – Sat</span><strong>10am – 10pm</strong></div>
+              <div class="time-row"><span>Sunday</span><strong>10am – 2pm</strong></div>
+            </div>
+          </div>
+          <div class="emergency">
+            <h3>Emergency Contact</h3>
+            <p>Immediate assistance available when you need urgent dental care.</p>
+            <a href="tel:+919265759219"><i class="fas fa-phone"></i> +91 92657 59219</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="treatments">
+      <div class="section-title">
+        <h2>Treatments</h2>
+      </div>
+      <div class="treatments-grid">
+        <article class="treatment-card"><i class="fas fa-tooth"></i><h3>Teeth Cleaning</h3><p>Professional hygiene services for fresh breath and healthy gums.</p></article>
+        <article class="treatment-card"><i class="fas fa-teeth"></i><h3>Braces</h3><p>Expert orthodontic care for aligned teeth and confident smiles.</p></article>
+        <article class="treatment-card"><i class="fas fa-root"></i><h3>Root Canal</h3><p>Gentle endodontic treatment to relieve pain and preserve teeth.</p></article>
+        <article class="treatment-card"><i class="fas fa-sun"></i><h3>Teeth Whitening</h3><p>Safe brightening treatments for a radiant smile.</p></article>
+        <article class="treatment-card"><i class="fas fa-tooth-open"></i><h3>Dental Implants</h3><p>Reliable tooth replacement with natural-looking results.</p></article>
+        <article class="treatment-card"><i class="fas fa-smile"></i><h3>Invisalign</h3><p>Clear aligners for discreet and comfortable orthodontics.</p></article>
+        <article class="treatment-card"><i class="fas fa-child"></i><h3>Pediatric Dentistry</h3><p>Kind care to support growing smiles from childhood onward.</p></article>
+        <article class="treatment-card"><i class="fas fa-video"></i><h3>Online Consultation</h3><p>Virtual appointments for expert advice from home.</p></article>
+      </div>
+    </section>
+
+    <section id="doctors">
+      <div class="section-title">
+        <h2>Expert Doctors Panel</h2>
+      </div>
+      <div class="doctor-panel">
+        <div class="doctor-item"><div class="card-top"><span>PS</span></div><div class="card-body"><h3>Dr. Priya Shah</h3><p>Orthodontist</p><p>9 years experience</p></div></div>
+        <div class="doctor-item"><div class="card-top"><span>AR</span></div><div class="card-body"><h3>Dr. Aaron Reed</h3><p>Orthodontist</p><p>12 years experience</p></div></div>
+        <div class="doctor-item"><div class="card-top"><span>SC</span></div><div class="card-body"><h3>Dr. Sofia Chen</h3><p>Pediatric Dentist</p><p>10 years experience</p></div></div>
+        <div class="doctor-item"><div class="card-top"><span>LV</span></div><div class="card-body"><h3>Dr. Leo Vargas</h3><p>Cosmetic Dentist</p><p>13 years experience</p></div></div>
+      </div>
+    </section>
+
+    <section id="offers">
+      <div class="section-title">
+        <h2>Offers & Discounts</h2>
+      </div>
+      <div class="offers-banner">
+        <div class="offers-info">
+          <h2>Exclusive savings for your first visit</h2>
+          <p>Enjoy comfortable dental care with exceptional savings today. Our special offer is designed to make your first step toward a healthier smile easy and affordable.</p>
+          <div class="offer-list">
+            <span class="offer-pill"><i class="fas fa-percent"></i>20% off first visit</span>
+            <span class="offer-pill"><i class="fas fa-x-ray"></i>Free X-ray with consultation</span>
+            <span class="offer-pill"><i class="fas fa-user"></i>Senior citizen discount</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="consultation-section">
+        <div>
+          <h2>Online Consultation Available</h2>
+          <p>Schedule a live video consultation with our dental experts for treatment planning, second opinions, or follow-up care from the comfort of home.</p>
+          <div class="highlight-box"><i class="fas fa-video"></i>Book a video call in minutes</div>
+        </div>
+        <a href="#booking" class="btn">Book Now</a>
+      </div>
+    </section>
+
+    <section id="booking">
+      <div class="section-title">
+        <h2>Appointment Booking Form</h2>
+      </div>
+      <div class="appointment-grid">
+        <div class="booking-form">
+          <form id="bookingForm">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" name="fullName" placeholder="Your full name" required>
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" placeholder="(123) 456-7890" required>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required>
+            <label for="date">Date</label>
+            <input type="date" id="date" name="date" required>
+            <label for="timeSlot">Time Slot</label>
+            <select id="timeSlot" name="timeSlot" required>
+              <option value="">Select a time</option>
+              <option>9:00 AM</option>
+              <option>10:30 AM</option>
+              <option>12:00 PM</option>
+              <option>2:00 PM</option>
+              <option>4:00 PM</option>
+              <option>6:00 PM</option>
+            </select>
+            <label for="treatment">Treatment Needed</label>
+            <select id="treatment" name="treatment" required>
+              <option value="">Select treatment</option>
+              <option>Checkup</option>
+              <option>Teeth Cleaning</option>
+              <option>Braces</option>
+              <option>Root Canal</option>
+              <option>Whitening</option>
+              <option>Dental Implants</option>
+              <option>Invisalign</option>
+              <option>Pediatric Dentistry</option>
+              <option>Online Consultation</option>
+            </select>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell us about your concern"></textarea>
+            <button type="submit" class="btn">Submit Appointment</button>
+          </form>
+        </div>
+        <div class="map-card">
+          <iframe src="https://maps.google.com/maps?q=22.9831401,72.5944584&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <div class="address-block">
+            <h3>Clinic Location</h3>
+            <p>Swarnim Multispeciality Dental clinic,<br>First Floor, D-11, Vishalnagar, Isanpur</p>
+            <p>Ahmedabad, Gujarat 382443</p>
+            <p>Landmark: Above Dr. Harish Mistry's Clinic, Near Sardar Chowk, Ahmedabad</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials">
+      <div class="section-title">
+        <h2>Patient Testimonials</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card"><div class="testimonial-rating">★★★★★</div><h4>Priya S.</h4><p>Doctor was very friendly and the treatment was painless. I felt at ease during the entire visit.</p></div>
+        <div class="testimonial-card"><div class="testimonial-rating">★★★★★</div><h4>Rahul M.</h4><p>My Invisalign experience at Swarnim Dental Clinic was excellent. The clinic is modern and the doctors explained everything clearly. Very economical rate in Ahmedabad.</p></div>
+        <div class="testimonial-card"><div class="testimonial-rating">★★★★☆</div><h4>Neha P.</h4><p>Booking an appointment was easy, and they helped me find a convenient slot in Ahmedabad that fit my schedule.</p></div>
+        <div class="testimonial-card"><div class="testimonial-rating">★★★★★</div><h4>Aarav T.</h4><p>Very professional and clean clinic. I am happy with my smile after the whitening treatment in Isanpur.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container">
+    <div class="footer-grid">
+      <div>
+        <h3>Swarnim Multispeciality Dental Clinic</h3>
+        <p>Committed to creating beautiful, healthy smiles with gentle dentistry and modern treatments.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+      <div class="footer-quick">
+        <h4>Quick Links</h4>
+        <a href="#about">About</a>
+        <a href="#treatments">Treatments</a>
+        <a href="#booking">Booking</a>
+        <a href="#testimonials">Testimonials</a>
+      </div>
+      <div class="footer-quick">
+        <h4>Contact</h4>
+        <p>+91 92657 59219</p>
+        <p>contact@smilecareclinic.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Swarnim Multispeciality Dental Clinic. All rights reserved.</p>
+      <p>Designed for comfortable family dental care.</p>
+      <p style="margin-top:0.75rem;font-size:0.95rem;color:var(--primary);font-weight:700;">Listed on Practo: <a href="https://www.practo.com/ahmedabad/clinic/swarnim-dental-clinic-isanpur" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;">practo.com/ahmedabad/clinic/swarnim-dental-clinic-isanpur</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const appointmentEmail = 'swarnimdentalclinic00@gmail.com'; // appointment emails will be sent here
+    const googleSheetWebhook = ''; // optional: replace with your Google Apps Script webhook URL
+
+    async function postToGoogleSheet(data) {
+      if (!googleSheetWebhook) return;
+      try {
+        const response = await fetch(googleSheetWebhook, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        return response.ok;
+      } catch (error) {
+        console.error('Google Sheet webhook error:', error);
+        return false;
+      }
+    }
+
+    document.getElementById('bookingForm').addEventListener('submit', async function(event) {
+      event.preventDefault();
+      const form = event.target;
+      const formData = new FormData(form);
+      const data = {
+        fullName: formData.get('fullName'),
+        phone: formData.get('phone'),
+        email: formData.get('email'),
+        date: formData.get('date'),
+        timeSlot: formData.get('timeSlot'),
+        treatment: formData.get('treatment'),
+        message: formData.get('message')
+      };
+
+      const emailSubject = encodeURIComponent(`Swarnim Dental Clinic Appointment Request - ${data.fullName}`);
+      const emailBody = encodeURIComponent(
+        `Name: ${data.fullName}%0D%0A` +
+        `Phone: ${data.phone}%0D%0A` +
+        `Email: ${data.email}%0D%0A` +
+        `Date: ${data.date}%0D%0A` +
+        `Time Slot: ${data.timeSlot}%0D%0A` +
+        `Treatment: ${data.treatment}%0D%0A` +
+        `Message: ${data.message}`
+      );
+
+      if (appointmentEmail === 'your.email@example.com') {
+        alert('Please update the appointmentEmail value in the page script with your real email address.');
+        return;
+      }
+
+      const sheetSaved = await postToGoogleSheet(data);
+      if (googleSheetWebhook && !sheetSaved) {
+        alert('The appointment request was sent by email, but saving to Google Sheet failed. Please check the webhook URL.');
+      }
+
+      window.location.href = `mailto:${appointmentEmail}?subject=${emailSubject}&body=${emailBody}`;
+      form.reset();
+    });
+  </script>
+</body>
+</html>

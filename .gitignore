@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.build/
+.vscode/
+.vercel/
+*.log
+Thumbs.db
+desktop.ini
+.DS_Store
+.env
