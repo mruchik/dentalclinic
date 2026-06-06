@@ -1094,7 +1094,7 @@
   </footer>
 
   <script>
-    const appointmentEmail = 'swarnimdentalclinic00@gmail.com'; // appointment emails will be sent here
+    // Frontend: send appointment data to serverless function which will send email
     const googleSheetWebhook = ''; // optional: replace with your Google Apps Script webhook URL
 
     async function postToGoogleSheet(data) {
@@ -1112,6 +1112,20 @@
       }
     }
 
+    async function postToServer(data) {
+      try {
+        const resp = await fetch('/api/send', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        return resp.json();
+      } catch (err) {
+        console.error('Send API error', err);
+        return { ok: false, error: 'network' };
+      }
+    }
+
     document.getElementById('bookingForm').addEventListener('submit', async function(event) {
       event.preventDefault();
       const form = event.target;
@@ -1126,29 +1140,35 @@
         message: formData.get('message')
       };
 
-      const emailSubject = encodeURIComponent(`Swarnim Dental Clinic Appointment Request - ${data.fullName}`);
-      const emailBody = encodeURIComponent(
-        `Name: ${data.fullName}%0D%0A` +
-        `Phone: ${data.phone}%0D%0A` +
-        `Email: ${data.email}%0D%0A` +
-        `Date: ${data.date}%0D%0A` +
-        `Time Slot: ${data.timeSlot}%0D%0A` +
-        `Treatment: ${data.treatment}%0D%0A` +
-        `Message: ${data.message}`
-      );
+      // try server send
+      const result = await postToServer(data);
+      const sheetSaved = await postToGoogleSheet(data);
 
-      if (appointmentEmail === 'your.email@example.com') {
-        alert('Please update the appointmentEmail value in the page script with your real email address.');
+      if (result && result.ok) {
+        alert('Appointment request sent — we will contact you soon.');
+        form.reset();
         return;
       }
 
-      const sheetSaved = await postToGoogleSheet(data);
-      if (googleSheetWebhook && !sheetSaved) {
-        alert('The appointment request was sent by email, but saving to Google Sheet failed. Please check the webhook URL.');
-      }
+      // fallback: if server failed and mail client is available, open mailto as last resort
+      const appointmentEmail = 'swarnimdentalclinic00@gmail.com';
+      const emailSubject = encodeURIComponent(`Swarnim Dental Clinic Appointment Request - ${data.fullName}`);
+      const emailBody = encodeURIComponent(
+        `Name: ${data.fullName}\n` +
+        `Phone: ${data.phone}\n` +
+        `Email: ${data.email}\n` +
+        `Date: ${data.date}\n` +
+        `Time Slot: ${data.timeSlot}\n` +
+        `Treatment: ${data.treatment}\n` +
+        `Message: ${data.message}`
+      );
 
-      window.location.href = `mailto:${appointmentEmail}?subject=${emailSubject}&body=${emailBody}`;
-      form.reset();
+      if (appointmentEmail) {
+        alert('Server delivery failed; opening mail client as fallback.');
+        window.location.href = `mailto:${appointmentEmail}?subject=${emailSubject}&body=${emailBody}`;
+      } else {
+        alert('Unable to send appointment request. Please contact the clinic directly.');
+      }
     });
   </script>
 </body>

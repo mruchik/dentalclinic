@@ -67,3 +67,15 @@ vercel --prod
 - This is a static site with no build step.
 - If you want to deploy directly from VS Code, install the Vercel extension and use its deploy commands after the repo is pushed to GitHub.
 - If you want me to continue, I can help you with the exact steps after Git is installed.
+
+## Server-side email (SendGrid)
+
+The booking form can now send emails from the server instead of opening the user's mail client. To enable this you must set these environment variables in Vercel:
+
+- `SENDGRID_API_KEY` — your SendGrid API key (create at https://app.sendgrid.com/settings/api_keys)
+- `SENDGRID_FROM_EMAIL` — a verified sender email in SendGrid (e.g. no-reply@yourdomain.com)
+- `APPOINTMENT_EMAIL` — the clinic email address that receives appointment requests (e.g. swarnimdentalclinic00@gmail.com)
+
+After adding the variables in your Vercel project settings, redeploy the site and the form will POST to `/api/send` which sends the email.
+
+If you prefer SMTP instead of SendGrid, I can provide a `nodemailer` version and corresponding environment variables.
